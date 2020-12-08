@@ -1,0 +1,8 @@
+<%= link_to 'New Artist', '/artists/new' %>
+<%= link_to 'Sort by name', '/artists?sort=asc' %>
+<%= link_to 'Sort by name reverse', '/artists?sort=asc' %>
+<% @artists.each do |artist| %>
+  <h2 class='artist-name'><%= artist.name %></h2>
+  <%= button_to 'Delete', "/artists/#{artist.id}", method: :delete %>
+  <%= link_to 'Edit', "/artists/#{artist.id}/edit" %>
+<% end %>
