@@ -29,6 +29,7 @@ describe Song do
     @lcd.songs.create!(title: 'Someone Great', length: 500, play_count: 1000000)
     @lcd.songs.create!(title: 'I Can Change', length: 640, play_count: 100000)
   end
+
   describe "relationships" do
     it {should belong_to :artist}
   end
@@ -40,11 +41,21 @@ describe Song do
       expect(Song.play_count_above(20000)).to eq(9)
       end
     end
+
     describe "::shortest_two" do
       it "can find the shortest two songs by length" do
         expect(Song.shortest_two.length).to eq(2)
         expect(Song.shortest_two.first.title).to eq('Vagabond')
         expect(Song.shortest_two.last.title).to eq('The Harder They Come')
+      end
+    end
+
+    describe '::most_recently_updated' do
+      it 'returns the correct record' do
+        legend = Song.find_by(title: 'Legend Has It')
+        legend.update(title: 'Legend does not have it')
+
+        expect(Song.most_recently_updated).to eq(legend)
       end
     end
   end
