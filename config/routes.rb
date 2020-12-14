@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   delete '/artists/:id', to: 'artists#destroy'
   get '/artists/:id/edit', to: 'artists#edit'
   patch "/artists/:id", to: 'artists#update'
-
+  get '/playlists', to: 'playlists#index'
 end
