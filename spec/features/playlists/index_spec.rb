@@ -24,7 +24,6 @@ RSpec.describe "the Playlist index page" do
 
     visit '/playlists'
 
-    save_and_open_page
     within("#playlist-#{rock.id}") do
       expect(page).to have_content(rock.name)
       expect(page).to have_content(place.title)
