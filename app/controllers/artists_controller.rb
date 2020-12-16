@@ -11,8 +11,13 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    Artist.create(artist_params)
-    redirect_to '/artists'
+    @artist = Artist.new(artist_params)
+    if @artist.save
+      redirect_to '/artists'
+    else
+      flash.now[:error] = 'Artist not created: Missing required information'
+      render :new
+    end
   end
 
   def destroy
