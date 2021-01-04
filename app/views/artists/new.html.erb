@@ -1,6 +1,2 @@
-<%= form_for(@artist) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true %>
+<%= render partial: 'form', locals: {path: '/artists', method: :post, button_text: 'Create Artist'} %>
 
-  <%= f.submit 'Create Artist' %>
-<% end %>
