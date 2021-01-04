@@ -1,5 +1,6 @@
 class Artist < ApplicationRecord
   has_many :songs
+  validates :name, presence: true
 
   def self.order_by_creation_time
     order('created_at ASC')
