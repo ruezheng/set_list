@@ -1,2 +1,5 @@
-<%= render partial: 'form', locals: {path: '/artists', method: :post, button_text: 'Create Artist'} %>
-
+<%= render partial: 'form',
+           locals: {
+                    artist: @artist,
+                    button_text: 'Create Artist'
+                   } %>
