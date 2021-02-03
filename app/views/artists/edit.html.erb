@@ -1,5 +1,5 @@
-<%= render partial: 'form', locals: {
-                                      path: "/artists/#{@artist.id}",
-                                      method: :patch,
-                                      button_text: 'Update Artist'
-                                    } %>
+<%= render partial: 'form',
+          locals: {
+                    artist: @artist,
+                    button_text: 'Update Artist'
+                  } %>
