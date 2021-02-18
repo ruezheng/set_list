@@ -1,6 +1,6 @@
-<%= form_tag "/artists/#{@artist.id}", method: :patch do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
+<%= form_with url: "/artists/#{@artist.id}", method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <%= submit_tag 'Update Artist' %>
+  <%= f.submit 'Update Artist' %>
 <% end %>

@@ -1,6 +1,6 @@
-<%= form_tag '/artists' do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
+<%= form_with url: '/artists', method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <%= submit_tag 'Create Artist' %>
+  <%= f.submit 'Create Artist' %>
 <% end %>
