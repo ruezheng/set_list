@@ -4,6 +4,7 @@ describe Artist do
   describe "relationships" do
     it { should have_many :songs }
   end
+
   describe "instance methods" do
     describe 'average_song_length' do
       it "returns the correct length" do
@@ -20,6 +21,18 @@ describe Artist do
         expect(talking_heads.average_song_length).to eq(0.1895e4)
         bowie = Artist.create!(name: 'David Bowie')
         expect(bowie.average_song_length).to be_nil
+      end
+    end
+  end
+
+  describe "class methods" do
+    describe '::by_name' do
+      it 'returns Artists ordered by name alphabetically' do
+        talking_heads = Artist.create!(name: 'Talking Heads')
+        bowie = Artist.create!(name: 'David Bowie')
+        jgb = Artist.create!(name: 'Jerry Garcia Band')
+
+        expect(Artist.by_name).to eq([bowie, jgb, talking_heads])
       end
     end
   end

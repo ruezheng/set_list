@@ -4,4 +4,8 @@ class Artist < ApplicationRecord
   def average_song_length
     songs.average(:length)
   end
+
+  def self.by_name
+    order(:name)
+  end
 end
